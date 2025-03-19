@@ -51,7 +51,7 @@ func targetDuration(segments []muxerSegment) int {
 
 	// EXTINF, when rounded to the nearest integer, must be <= EXT-X-TARGETDURATION
 	for _, sog := range segments {
-		v := int(math.Round(sog.getDuration().Seconds()))
+		v := int(math.Ceil(sog.getDuration().Seconds()))
 		if v > ret {
 			ret = v
 		}
